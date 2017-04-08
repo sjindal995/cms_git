@@ -1,0 +1,22 @@
+bool signUpUser(Form form){
+	string userID = form.userID;
+	string email = form.email;
+	string dob = form.dob;
+	List<int> favIds = [];
+	bool verified = false;
+	if(email.exists()){
+		printf("email already registered");
+		return false;
+	}
+	string verification_code = genVerificationCode();
+	sendCode(email,verification_code);
+	storeToDatabase(userID, email, dob, favIds, verified, verification_code);
+	return true;
+}
+
+bool resendCode(strign email){
+	string verification_code = genVerificationCode();
+	sendCode(email,verification_code);
+	storeToDatabase(userID, email, dob, favIds, verified, verification_code);
+	return true;
+}
