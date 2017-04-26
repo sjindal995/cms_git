@@ -43,7 +43,7 @@ public class DownloadActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_download);
+        setContentView(R.layout.content_download);
         URL urls[] = new URL[1];
 
         List fileList=null;
@@ -92,6 +92,8 @@ public class DownloadActivity extends Activity {
 
 
     }
+
+
 
     public void onClick(View view) {
         dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);

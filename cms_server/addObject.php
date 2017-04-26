@@ -14,7 +14,7 @@ if (isset($_POST['label']) && isset($_POST['type']) && isset($_POST['uri']) && i
     $upload_time = $_POST['upload_time'];
 
     // create a new object
-    $object = $db->addObject($label, $type, $uri);
+    $object = $db->addObject($label, $type, "uploads/".$uri);
     
     if ($object) {
         // object stored successfully

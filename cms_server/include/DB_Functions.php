@@ -244,6 +244,31 @@ class DB_Functions {
         
     }
 
+    public function getAllObjects() {
+ 
+        $stmt = $this->conn->prepare("SELECT * FROM object;");
+ 
+        $stmt->execute();
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $result;
+        
+    }
+
+    public function removeFavorite($obj_id, $user_id){
+        $stmt = $this->conn->prepare("DELETE FROM favorites where user_id=? and object_id=?");
+        // $stmt->bind_param("ssss", $username, $email, $encrypted_password, $salt);
+        $stmt->bind_param("ii", $user_id, $obj_id);
+        $result = $stmt->execute();
+        $stmt->close();
+ 
+        // check for successful store
+        if ($result) {
+        }
+        else{
+            return false;
+        }
+        return true;
+    }
 
 }
  

@@ -143,10 +143,8 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
                             String fileName = filePathArr[filePathArr.length - 1];
 
                             addObject(label, type, fileName, timeStamp);
-//                            if(res2 > 0){
-//                                String[] tags = label.split(" ");
-////                                addTag(res2, tags);
-//                            }
+
+
                         }
                     }
                 }).start();
@@ -341,7 +339,8 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
                         String upload_time = object
                                 .getString("upload_time");
                         System.out.println("Object id registered: " + id);
-                        String[] tags = label.split(" ");
+                        String tags_str = ((EditText) findViewById(R.id.et_tags)).getText().toString();
+                        String[] tags = tags_str.split(" ");
                         addTag(id, tags);
 
 
